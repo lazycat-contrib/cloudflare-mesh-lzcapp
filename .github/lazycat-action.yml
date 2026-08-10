@@ -38,8 +38,8 @@ stores:
     application:
       language: zh
       name: Cloudflare Mesh
-      source: https://github.com/lazycat-contrib/cloudflare-mesh-lzcapp
-      source_author: lazycat-contrib
+      source: https://hub.docker.com/r/cloudflare/mesh
+      source_author: cloudflare
   private:
     enabled: true
     skip_if_version_exists: true
