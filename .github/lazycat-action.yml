@@ -1,0 +1,47 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: dist/application.lpk
+  target_arch: amd64
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: cloudflare-mesh
+
+build:
+  run_buildscript: false
+
+images:
+  - id: cloudflare-mesh
+    target: service
+    service: cloudflare-mesh
+    source: cloudflare/mesh
+    channel: stable
+    sort: semver
+    tag_regex: '^\d{4}\.\d+\.\d+$'
+    delivery:
+      mode: lazycat
+
+stores:
+  official:
+    enabled: true
+    skip_if_version_exists: true
+    create_if_missing: true
+    retry:
+      enabled: false
+    application:
+      language: zh
+      name: Cloudflare Mesh
+      source: https://github.com/lazycat-contrib/cloudflare-mesh-lzcapp
+      source_author: lazycat-contrib
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: Cloudflare Mesh
+    summary: Cloudflare Mesh node for LazyCat

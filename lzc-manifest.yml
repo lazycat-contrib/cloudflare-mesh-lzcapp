@@ -1,0 +1,19 @@
+application:
+  subdomain: cloudflare-mesh
+  background_task: true
+  upstreams:
+    - location: /
+      backend: file:///lzcapp/pkg/content/index.html
+
+services:
+  cloudflare-mesh:
+    image: cloudflare/mesh:2026.7.0
+    environment:
+      - MESH_NODE_TOKEN={{ .U.mesh_node_token }}
+      - SRCNAT_ENABLED=true
+    netadmin: true
+    binds:
+      - /lzcapp/var/mesh:/var/lib/cloudflare-warp
+
+usage: |
+  安装时输入 Cloudflare Mesh Node Token。应用会在后台运行 Cloudflare One Client（warp-cli）；打开应用可查看简介并前往官方文档。

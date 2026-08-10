@@ -1,0 +1,16 @@
+params:
+  - id: mesh_node_token
+    type: secret
+    name: Mesh Node Token
+    description: "Token generated when adding a node in the Cloudflare dashboard: https://dash.cloudflare.com/?to=/:account/mesh"
+    optional: false
+
+locales:
+  zh:
+    mesh_node_token:
+      name: Mesh 节点令牌
+      description: "在 Cloudflare 控制台添加 Mesh 节点并获取令牌：https://dash.cloudflare.com/?to=/:account/mesh"
+  en:
+    mesh_node_token:
+      name: Mesh Node Token
+      description: "Add a Mesh node and get its token: https://dash.cloudflare.com/?to=/:account/mesh"
