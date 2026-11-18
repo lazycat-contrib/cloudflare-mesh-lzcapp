@@ -6,8 +6,8 @@ application:
       backend: file:///lzcapp/pkg/content/index.html
 services:
   cloudflare-mesh:
-    # upstream: cloudflare/mesh:2026.7.0
-    image: registry.lazycat.cloud/czyt/cloudflare/mesh:c84fec69de70ebc4
+    # upstream: cloudflare/mesh:2026.10.0
+    image: registry.lazycat.cloud/czyt/cloudflare/mesh:df3bd6676d0767ea
     environment:
       - MESH_NODE_TOKEN={{ .U.mesh_node_token }}
       - SRCNAT_ENABLED=true
